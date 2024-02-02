@@ -4,10 +4,10 @@ SET @customer_id:=1;
 SET @product_id:=1;
 SET @count:=1;
 
-START TRANSACTION; 
-
 INSERT INTO Orders (CustomerID, DATE)
 VALUES (@customer_id, '2024-02-02');
+
+START TRANSACTION; 
 
 INSERT INTO OrderItems (OrderID, ProductID, Count)
 VALUES (LAST_INSERT_ID(), @product_id, @count);
